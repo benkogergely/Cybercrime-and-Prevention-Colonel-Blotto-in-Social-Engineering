@@ -49,9 +49,19 @@ for i in top_indices:
 plt.figure(figsize=(10,6))
 plt.imshow(top_heatmap_data, cmap='Blues', aspect='auto', vmin=0, vmax=np.max(top_heatmap_data))  # Darker blue for more soldiers
 plt.colorbar(label='Number of Soldiers')
-plt.xticks(range(len(battlefield_limits)), [f'Battlefield {i+1}' for i in range(len(battlefield_limits))])
+
+x_labels = [
+    "Tech Support\nScam",
+    "Grandparent/Relative\nImpersonation",
+    "Government\nImpersonation",
+    "Investment\nScam",
+    "Confidence/Romance\nFraud"
+]
+
+plt.xticks(range(len(battlefield_limits)), x_labels)
+
 plt.yticks(range(len(top_indices)), [f'Index {i} ({defender_win_probs[i]:.2f})' for i in top_indices])
-plt.xlabel('Battlefield')
+plt.xlabel('Battlefields')
 plt.ylabel('Top Defender Strategy Index and Win Probability')
-plt.title('Top 10 Defender Strategies ')
+plt.title('Top 10 Defender Strategies')
 plt.show()
